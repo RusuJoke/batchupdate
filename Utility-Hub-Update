@@ -27,7 +27,7 @@ if '%errorlevel%' NEQ '0' (
 
 :menu
 chcp 65001 >nul
-title Utility Hub - Made by rusuu ( v1.5 ) sunt bos
+title Utility Hub - Made by rusuu ( v1.5 ) 
 call :banner
 
 
@@ -45,6 +45,7 @@ echo.
 
 echo.
 
+echo [38;2;255;255;0m  ^>[0m [38;2;255;255;255m  [0] - Update Utility Hub[0m
 echo [38;2;255;255;0m  ^>[0m [38;2;255;255;255m  [1] - Check IP Address[0m
 echo [38;2;255;255;0m  ^>[0m [38;2;255;255;255m  [2] - Check System Info[0m
 echo [38;2;255;255;0m  ^>[0m [38;2;255;255;255m  [3] - Clear Network Cache[0m
