@@ -27,7 +27,7 @@ if '%errorlevel%' NEQ '0' (
 
 :menu
 chcp 65001 >nul
-title Utility Hub - Made by rusuu ( v1.5 ) 
+title Utility Hub - Made by rusuu ( v1.5 ) test123
 call :banner
 
 
@@ -147,7 +147,7 @@ GOTO stop
 :updateutil
 setlocal enabledelayedexpansion
 
-set "updateUrl=https://raw.githubusercontent.com/RusuJoke/batchupdate/main/Utility-Hub-Update"
+set "updateUrl=https://raw.githubusercontent.com/RusuJoke/batchupdate/refs/heads/main/Utility-Hub-Update"
 set "currentScript=%~f0"
 set "tempScript=%temp%\UtilityHubUpdate.bat"
 
