@@ -27,7 +27,7 @@ if '%errorlevel%' NEQ '0' (
 
 :menu
 chcp 65001 >nul
-title actualizat! ( v1.5 )
+title Utility Hub - Made by rusuu ( v1.5 )
 call :banner
 
 
@@ -146,6 +146,28 @@ echo Generated password: %password%
 GOTO stop
 
 :updateutil
+setlocal enabledelayedexpansion
+
+set "updateUrl=https://raw.githubusercontent.com/RusuJoke/batchupdate/main/Utility-Hub-Update"
+
+set "currentScript=%~f0"
+
+set "tempScript=%temp%\UtilityHubUpdate.bat"
+
+echo Downloading Update...
+curl -L -o "%tempScript%" "%updateUrl%"
+
+if not exist "%tempScript%" (
+    echo An unexpected error occurred. Please check your internet connection and try again later.
+    exit /b
+)
+
+move /Y "%tempScript%" "%currentScript%"
+
+echo Successfully installed update.
+
+start "" "%currentScript%"
+exit /b
 
 
 :stop
