@@ -148,9 +148,7 @@ GOTO stop
 setlocal enabledelayedexpansion
 
 set "updateUrl=https://raw.githubusercontent.com/RusuJoke/batchupdate/main/Utility-Hub-Update"
-
 set "currentScript=%~f0"
-
 set "tempScript=%temp%\UtilityHubUpdate.bat"
 
 echo Downloading Update...
@@ -162,7 +160,6 @@ if not exist "%tempScript%" (
 )
 
 move /Y "%tempScript%" "%currentScript%"
-
 echo Successfully installed update.
 
 start "" "%currentScript%"
