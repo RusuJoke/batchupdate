@@ -145,25 +145,43 @@ echo Generated password: %password%
 GOTO stop
 
 :updateutil
+@echo off
 setlocal enabledelayedexpansion
 
+rem Define the URL for the update script and the paths for the current and temporary scripts
 set "updateUrl=https://raw.githubusercontent.com/RusuJoke/batchupdate/refs/heads/main/Utility-Hub-Update"
 set "currentScript=%~f0"
 set "tempScript=%temp%\UtilityHubUpdate.bat"
 
 echo Downloading Update...
-curl -L -o "%tempScript%" "%updateUrl%"
 
-if not exist "%tempScript%" (
-    echo An unexpected error occurred. Please check your internet connection and try again later.
-    exit /b
+rem Use curl to download the update script
+curl -L -o "%tempScript%" "%updateUrl%"
+if errorlevel 1 (
+    echo Failed to download the update. Please check your internet connection and try again later.
+    exit /b 1
 )
 
-move /Y "%tempScript%" "%currentScript%"
-echo Successfully installed update.
+rem Check if the temporary script was downloaded successfully
+if not exist "%tempScript%" (
+    echo An unexpected error occurred. Please check your internet connection and try again later.
+    exit /b 1
+)
 
+rem Move the downloaded script to replace the current script
+move /Y "%tempScript%" "%currentScript%"
+if errorlevel 1 (
+    echo Failed to replace the current script. Please try again.
+    exit /b 1
+)
+
+echo Successfully installed update.
+echo Starting the updated script...
+
+rem Start the updated script
 start "" "%currentScript%"
-exit /b
+exit /b 0
+
 
 
 :stop
