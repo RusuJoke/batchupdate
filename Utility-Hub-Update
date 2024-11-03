@@ -60,8 +60,7 @@ echo [38;2;255;255;0m  ^>[0m [38;2;255;255;255m  [9] - Random Password Genera
 echo.
 echo.
 echo.
-echo.
-echo.
+
 
 SET option=
 SET /P option= [38;2;255;255;0mOption:  [0m
